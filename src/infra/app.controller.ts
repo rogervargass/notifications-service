@@ -10,12 +10,11 @@ export class AppController {
 
   @Get()
   list() {
-    return this.prisma.notification.findMany()
+    return this.prisma.notification.findMany();
   }
 
   @Post()
   async create(@Body() body: CreateNotificationBody) {
-
     const { recipientId, category, content } = body;
 
     await this.prisma.notification.create({
@@ -24,7 +23,7 @@ export class AppController {
         content,
         category,
         recipientId,
-      }
-    })
+      },
+    });
   }
 }
